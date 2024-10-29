@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafíos - Green USM</title>
+    <link rel="stylesheet" href="desafiosestilo.css">
+</head>
+<body>
+    <header>
+        <div class="empresa-nombre">Green USM</div>
+        <nav>
+            <ul class="navbar">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#desafios" class="active">Desafíos</a></li>
+                <li><a href="#puntos">Puntos de reciclaje</a></li>
+                <li><a href="#perfil">Mi perfil</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="intro">
+            <h1>Desafíos Semanales</h1>
+            <p>Completa los desafíos semanales y acumula puntos para ganar recompensas.</p>
+        </section>
+        <section class="desafios">
+            <h2>Lista de Desafíos</h2>
+            <ul id="lista-desafios">
+                <li>
+                    <input type="checkbox" id="desafio1" data-puntos="10">
+                    <label for="desafio1">Recicla 5 botellas de plástico (10 puntos)</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="desafio2" data-puntos="20">
+                    <label for="desafio2">Usa transporte público durante 3 días (20 puntos)</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="desafio3" data-puntos="15">
+                    <label for="desafio3">Planta un árbol (15 puntos)</label>
+                </li>
+                <!-- Añade más desafíos según sea necesario -->
+            </ul>
+            <button id="completar-desafios">Completar Desafíos</button>
+        </section>
+        <section class="puntos">
+            <h2>Puntos Acumulados</h2>
+            <p id="puntos-acumulados">0</p>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <p>Contacto: <a href="mailto:contacto@greenusm.com">contacto@greenusm.com</a></p>
+            <p>Teléfono: +56 9 1234 5678</p>
+            <p>Dirección: Av. Universidad Técnica Federico Santa María, Valparaíso, Chile</p>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('completar-desafios').addEventListener('click', function() {
+            var puntosTotales = 0;
+            var checkboxes = document.querySelectorAll('#lista-desafios input[type="checkbox"]');
+            checkboxes.forEach(function(checkbox) {
+                if (checkbox.checked) {
+                    puntosTotales += parseInt(checkbox.getAttribute('data-puntos'));
+                    checkbox.checked = false; // Desmarcar el desafío completado
+                }
+            });
+            var puntosAcumulados = document.getElementById('puntos-acumulados');
+            puntosAcumulados.textContent = parseInt(puntosAcumulados.textContent) + puntosTotales;
+        });
+    </script>
+</body>
+</html>
