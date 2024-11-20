@@ -1,0 +1,45 @@
+/* Barra de navegación dentro del header */
+header .navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333; /* Cambia este color */
+    text-align: center;
+}
+
+header .navbar li {
+    display: inline-block;
+}
+
+header .navbar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+header .navbar li a:hover, 
+header .navbar li a.active {
+    background-color: #4CAF50; /* Cambia este color para el hover */
+}
+
+/* Pie de página */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+    width: 100%;
+    bottom: 0; 
+}
+
+.footer-content a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+.footer-content a:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,117 @@
+/* Fondo de la página */
+body {
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    font-size: 18px;
+}
+
+/* Estilo para el nombre de la empresa */
+.empresa-nombre {
+    text-align: center;
+    font-size: 2.5em;
+    font-weight: bold;
+    margin: 1em 0;
+    color: #4CAF50;
+}
+
+/* Barra de navegación */
+.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    text-align: center;
+;
+}
+
+.navbar li {
+    display: inline-block;
+}
+
+.navbar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navbar li a:hover, .navbar li a.active {
+    background-color: #4CAF50;
+}
+
+/* Sección de introducción */
+.intro {
+    text-align: center;
+    padding: 1em;
+    background-color: #fff;
+    margin: 1em auto;
+    border-radius: 10px;
+    width: 80vw;
+    max-width: 800px;
+    min-width: 300px;
+    box-sizing: border-box;
+}
+
+/* Sección de desafíos */
+.desafios {
+    padding: 2em;
+    background-color: #ffffff;
+    margin: 1em;
+    border-radius: 10px;
+}
+
+.desafios ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.desafios li {
+    margin-bottom: 1em;
+}
+
+.desafios button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.desafios button:hover {
+    background-color: #45a049;
+}
+
+/* Sección de puntos */
+.puntos {
+    text-align: center;
+    padding: 2em;
+    background-color: #fff;
+    margin: 1em;
+    border-radius: 10px;
+}
+
+/* Pie de página */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+    width: 100%;
+    bottom: 0; 
+    margin-top: 17.5em; /* Ajusta este valor según sea necesario */
+}
+
+.footer-content a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+.footer-content a:hover {
+    text-decoration: underline;
+}

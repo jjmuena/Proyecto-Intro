@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/baseestilo.css' %}">
+    <title>Green USM</title>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+    
+<header>
+    <div class="empresa-nombre">Green USM</div>
+    <nav>
+        <ul class="navbar">
+            <li><a href="{% url 'inicio' %}">Inicio</a></li>
+            <li><a href="{% url 'puntos' %}">Puntos de reciclaje</a></li>
+            <li><a href="{% url 'desafios' %}">Desafíos</a></li>
+            {% if request.user.is_authenticated %}
+            <li><a href="{% url 'exit' %}">Cerrar sesion</a></li>
+            <li><a href="{% url 'perfil' %}">Mi perfil</a></li>
+            {% else %}
+            <li><a href="{% url 'login' %}">Iniciar sesion</a></li>
+            <li><a href="{% url 'register' %}">Registrarse</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+</header>
+
+{% block content %}
+{% endblock %}
+
+<footer>
+    <div class="footer-content">
+        <p>&copy; 2023 Green USM. Todos los derechos reservados.</p>
+        <a href="#">Política de privacidad</a> | <a href="#">Términos de servicio</a>
+    </div>
+</footer>
+
+</body>
+</html>

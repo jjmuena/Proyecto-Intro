@@ -1,0 +1,35 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/perfilestilo.css' %}">      
+            <h1>Mi Perfil</h1>
+            <div class="informacion-usuario">
+                <h2>Información del Usuario</h2>
+                <p><strong>Nombre:</strong> Juan Pérez</p>
+                <p><strong>Email:</strong> juan.perez@example.com</p>
+                <p><strong>Miembro desde:</strong> Enero 2023</p>
+            </div>
+            <div class="puntos-usuario">
+                <h2>Puntos Ganados</h2>
+                <p id="puntos-ganados">0</p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <p>Contacto: <a href="mailto:contacto@greenusm.com">contacto@greenusm.com</a></p>
+            <p>Teléfono: +56 9 1234 5678</p>
+            <p>Dirección: Av. Universidad Técnica Federico Santa María, Valparaíso, Chile</p>
+        </div>
+    </footer>
+    <script>
+        // Simulación de puntos ganados
+        var puntosGanados = 120; // Este valor puede ser dinámico, obtenido de una base de datos o API
+        document.getElementById('puntos-ganados').textContent = puntosGanados;
+    </script>
+</body>
+</html>
+
+{% endblock %}
