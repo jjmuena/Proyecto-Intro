@@ -3,33 +3,33 @@
 {% block content %}
 
 {% load static %}
+
+{% if request.user.is_authenticated %}
 <link rel="stylesheet" href="{% static 'css/perfilestilo.css' %}">      
-            <h1>Mi Perfil</h1>
-            <div class="informacion-usuario">
-                <h2>Información del Usuario</h2>
-                <p><strong>Nombre:</strong> Juan Pérez</p>
-                <p><strong>Email:</strong> juan.perez@example.com</p>
-                <p><strong>Miembro desde:</strong> Enero 2023</p>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <img src="{{ user.picture.url }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                <h5 class="card-title">{{ user.first_name }} {{ user.last_name }}</h5>
+                <p class="card-text mt-2"><i class="bi bi-envelope"></i> {{ user.email }}</p>
+                <p class="card-text mt-2"><i class="bi bi-at"></i>{{ user.username }}</p>
+                <p class="card-text mt-2">Puntos Acumulados: {{ puntos_acumulados }}</p>
+                <p class="card-text mt-2">{{ user.date_joined }}</p>
+                <a href="{% url 'exit' %}" class="btn btn-sm btn-success">Cerrar Sesión</a>
+                </div>
             </div>
-            <div class="puntos-usuario">
-                <h2>Puntos Ganados</h2>
-                <p id="puntos-ganados">0</p>
-            </div>
-        </section>
-    </main>
-    <footer>
-        <div class="footer-content">
-            <p>Contacto: <a href="mailto:contacto@greenusm.com">contacto@greenusm.com</a></p>
-            <p>Teléfono: +56 9 1234 5678</p>
-            <p>Dirección: Av. Universidad Técnica Federico Santa María, Valparaíso, Chile</p>
         </div>
-    </footer>
-    <script>
-        // Simulación de puntos ganados
-        var puntosGanados = 120; // Este valor puede ser dinámico, obtenido de una base de datos o API
-        document.getElementById('puntos-ganados').textContent = puntosGanados;
-    </script>
-</body>
-</html>
+        <div class="col-md-8">
+            <h4>Biografia</h4>
+            <p>{% lorem %}</p>
+        </div>
+    </div>
+</div>
+{% else %}
+    <h1>Debes iniciar sesión para ver tu perfil</h1>
+{% endif %}
 
 {% endblock %}

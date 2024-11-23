@@ -30,7 +30,7 @@
 </section>
 <section class="puntos">
     <h2>Puntos Acumulados</h2>
-    <p id="puntos-acumulados">0</p>
+    <p id="puntos-acumulados">{{ puntos_acumulados }}</p>
 </section>
 </main>
 <footer>
@@ -41,18 +41,72 @@
 </div>
 </footer>
 <script>
-document.getElementById('completar-desafios').addEventListener('click', function() {
-    var puntosTotales = 0;
-    var checkboxes = document.querySelectorAll('#lista-desafios input[type="checkbox"]');
-    checkboxes.forEach(function(checkbox) {
-        if (checkbox.checked) {
-            puntosTotales += parseInt(checkbox.getAttribute('data-puntos'));
-            checkbox.checked = false; // Desmarcar el desafío completado
-        }
+document.addEventListener('DOMContentLoaded', function() {
+    // Cargar los puntos acumulados desde el backend
+    cargarPuntosAcumulados();
+
+    document.getElementById('completar-desafios').addEventListener('click', function() {
+        var puntosTotales = 0;
+        var checkboxes = document.querySelectorAll('#lista-desafios input[type="checkbox"]');
+        checkboxes.forEach(function(checkbox) {
+            if (checkbox.checked) {
+                puntosTotales += parseInt(checkbox.getAttribute('data-puntos'));
+                checkbox.checked = false; // Desmarcar el desafío completado
+            }
+        });
+        var puntosAcumulados = document.getElementById('puntos-acumulados');
+        var nuevosPuntos = parseInt(puntosAcumulados.textContent) + puntosTotales;
+        puntosAcumulados.textContent = nuevosPuntos;
+
+        // Enviar los puntos al backend
+        enviarPuntosAlBackend(puntosTotales);
     });
-    var puntosAcumulados = document.getElementById('puntos-acumulados');
-    puntosAcumulados.textContent = parseInt(puntosAcumulados.textContent) + puntosTotales;
 });
+
+function cargarPuntosAcumulados() {
+    fetch('/obtener-puntos/')
+    .then(response => response.json())
+    .then(data => {
+        var puntosAcumulados = document.getElementById('puntos-acumulados');
+        puntosAcumulados.textContent = data.puntos;
+    })
+    .catch(error => {
+        console.error('Error al cargar los puntos acumulados:', error);
+    });
+}
+
+function enviarPuntosAlBackend(puntos) {
+    fetch('/guardar-puntos/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'X-CSRFToken': getCookie('csrftoken')
+        },
+        body: `puntos=${puntos}`
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Puntos guardados:', data);
+    })
+    .catch(error => {
+        console.error('Error al guardar los puntos:', error);
+    });
+}
+
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
 </script>
 </body>
 </html>

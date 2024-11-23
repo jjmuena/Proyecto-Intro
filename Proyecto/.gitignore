@@ -1,0 +1,6 @@
+# Ignorar archivos compilados de Python
+__pycache__/
+*.pyc
+
+# Ignorar base de datos local
+db.sqlite3

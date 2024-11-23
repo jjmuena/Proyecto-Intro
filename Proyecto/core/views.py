@@ -3,6 +3,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from .forms import CustomUserCreationForm
 from django.contrib.auth import authenticate, login
+from django.http import JsonResponse
+from django.views.decorators.http import require_POST, require_GET
 # Create your views here.
 
 @login_required
@@ -10,13 +12,15 @@ def inicio(request):
     return render(request, 'core/inicio.html')
 @login_required
 def desafios(request):
-    return render(request, 'core/desafios.html')
+    puntos_acumulados = request.user.score
+    return render(request, 'core/desafios.html', {'puntos_acumulados': puntos_acumulados})
 @login_required
 def puntos(request):
     return render(request, 'core/puntos.html')
 
 def perfil(request):
-    return render(request, 'core/perfil.html')
+    puntos_acumulados = request.user.score
+    return render(request, 'core/perfil.html', {'puntos_acumulados': puntos_acumulados})
 
 def register(request):
     data = {
@@ -39,3 +43,22 @@ def register(request):
 def exit(request):
     logout(request)
     return redirect('inicio')
+
+@login_required
+@require_POST
+def guardar_puntos(request):
+    puntos = request.POST.get('puntos')
+    if puntos is not None:
+        try:
+            puntos = int(puntos)
+            request.user.score += puntos
+            request.user.save()
+            return JsonResponse({'mensaje': 'Puntos guardados correctamente', 'puntos': request.user.score})
+        except ValueError:
+            return JsonResponse({'error': 'Puntos inválidos'}, status=400)
+    return JsonResponse({'error': 'Puntos no proporcionados'}, status=400)
+
+@login_required
+@require_GET
+def obtener_puntos(request):
+    return JsonResponse({'puntos': request.user.score})
