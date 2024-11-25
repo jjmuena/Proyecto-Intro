@@ -1,10 +1,11 @@
 /* Barra de navegación dentro del header */
+
 header .navbar {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333; /* Cambia este color */
+    background-color: #333; 
     text-align: center;
 }
 
@@ -22,7 +23,7 @@ header .navbar li a {
 
 header .navbar li a:hover, 
 header .navbar li a.active {
-    background-color: #4CAF50; /* Cambia este color para el hover */
+    background-color: #4CAF50; 
 }
 
 /* Pie de página */

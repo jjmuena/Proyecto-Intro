@@ -1,3 +1,4 @@
+import requests
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
@@ -10,17 +11,30 @@ from django.views.decorators.http import require_POST, require_GET
 @login_required
 def inicio(request):
     return render(request, 'core/inicio.html')
+
 @login_required
 def desafios(request):
     puntos_acumulados = request.user.score
     return render(request, 'core/desafios.html', {'puntos_acumulados': puntos_acumulados})
+
 @login_required
 def puntos(request):
     return render(request, 'core/puntos.html')
 
+@login_required
 def perfil(request):
     puntos_acumulados = request.user.score
-    return render(request, 'core/perfil.html', {'puntos_acumulados': puntos_acumulados})
+    articles = obtener_articulos()
+    return render(request, 'core/perfil.html', {'puntos_acumulados': puntos_acumulados, 'articles': articles})
+
+def obtener_articulos():
+    api_key = 'f338fb6b35f54c33a8431e0ff673b780'
+    url = f'https://newsapi.org/v2/everything?q=calentamiento%20global&language=es&apiKey={api_key}'
+    response = requests.get(url)
+    if response.status_code == 200:
+        data = response.json()
+        return data['articles']
+    return []
 
 def register(request):
     data = {

@@ -8,13 +8,13 @@ body {
     margin: 0;
     padding: 0;
     color: #333;
-    font-size: 18px; /* Aumenta el tamaño de la fuente */
+    font-size: 18px; 
 }
 
 /* Estilo para el nombre de la empresa */
 .empresa-nombre {
     text-align: center;
-    font-size: 2.5em; /* Aumenta el tamaño de la fuente */
+    font-size: 2.5em; 
     font-weight: bold;
     margin: 1em 0;
     color: #4CAF50;
@@ -51,12 +51,12 @@ body {
     text-align: center;
     padding: 1em;
     background-color: #4CAF50;
-    margin: 1em auto; /* Centra el bloque horizontalmente */
+    margin: 1em auto; 
     border-radius: 10px;
-    width: 80vw; /* Ancho relativo al tamaño de la pantalla */
-    max-width: 800px; /* Ancho máximo fijo */
-    min-width: 300px; /* Ancho mínimo fijo */
-    box-sizing: border-box; /* Incluye el padding y el borde en el tamaño total del elemento */
+    width: 80vw; 
+    max-width: 800px; 
+    min-width: 300px; 
+    box-sizing: border-box; 
 }
 
 /* Sección de contenido */
@@ -89,7 +89,7 @@ h3 {
 /* Resto del CSS */
 main {
     padding: 2em;
-    margin-bottom: 100px; /* Añade un margen inferior para separar el contenido del pie de página */
+    margin-bottom: 100px; 
 }
 
 /* Pie de página */

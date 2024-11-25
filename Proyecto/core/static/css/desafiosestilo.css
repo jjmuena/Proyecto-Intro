@@ -8,7 +8,7 @@ body {
     font-size: 18px;
 }
 
-/* Estilo para el nombre de la empresa */
+/* Nombre de la empresa */
 .empresa-nombre {
     text-align: center;
     font-size: 2.5em;
@@ -17,7 +17,7 @@ body {
     color: #4CAF50;
 }
 
-/* Sección de introducción */
+/* Introducción */
 .intro {
     text-align: center;
     padding: 1em;
@@ -30,7 +30,7 @@ body {
     box-sizing: border-box;
 }
 
-/* Sección de desafíos */
+/* Desafíos */
 .desafios {
     padding: 2em;
     background-color: #ffffff;
@@ -60,7 +60,7 @@ body {
     background-color: #45a049;
 }
 
-/* Sección de puntos */
+/* Puntos */
 .puntos {
     text-align: center;
     padding: 2em;

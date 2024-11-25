@@ -8,7 +8,7 @@ body {
     font-size: 18px;
 }
 
-/* Estilo para el nombre de la empresa */
+/* Nombre de la empresa */
 .empresa-nombre {
     text-align: center;
     font-size: 2.5em;
@@ -43,7 +43,7 @@ body {
     background-color: #4CAF50;
 }
 
-/* Sección de perfil */
+/* Perfil */
 .perfil {
     text-align: center;
     padding: 2em;
@@ -81,5 +81,33 @@ footer {
 }
 
 .footer-content a:hover {
+    text-decoration: underline;
+}
+
+head.articles-container {
+    max-height: 400px; 
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #f9f9f9;
+}
+
+head.articles-container ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+head.articles-container li {
+    margin-bottom: 10px;
+}
+
+head.articles-container a {
+    font-weight: bold;
+    color: #007bff;
+    text-decoration: none;
+}
+
+head.articles-container a:hover {
     text-decoration: underline;
 }

@@ -5,13 +5,13 @@ body {
     margin: 0;
     padding: 0;
     color: #333;
-    font-size: 18px; /* Aumenta el tamaño de la fuente */
+    font-size: 18px; 
 }
 
-/* Estilo para el nombre de la empresa */
+/* Nombre de la empresa */
 .empresa-nombre {
     text-align: center;
-    font-size: 2.5em; /* Aumenta el tamaño de la fuente */
+    font-size: 2.5em; 
     font-weight: bold;
     margin: 1em 0;
     color: #4CAF50;
@@ -46,23 +46,23 @@ body {
 /* Contenedor principal */
 main {
     display: flex;
-    flex-direction: column; /* Cambia la dirección del flex a columna */
+    flex-direction: column; 
     padding: 2em;
-    margin-bottom: 150px; /* Añade un margen inferior para separar el contenido del pie de página */
+    margin-bottom: 150px; 
 }
 
-/* Sección de introducción */
+/* introducción */
 .intro {
     text-align: center;
     padding: 1em;
     background-color: #fff;
-    margin: 1em auto; /* Centra el bloque horizontalmente */
+    margin: 1em auto; 
     border-radius: 10px;
     width: 80vw;
-    box-sizing: border-box; /* Incluye el padding y el borde en el tamaño total del elemento */
+    box-sizing: border-box; 
 }
 
-/* Sección de búsqueda y resultados */
+/* Búsqueda y resultados */
 .search, #resultados {
     flex: 1;
     min-width: 300px;
@@ -73,7 +73,7 @@ main {
 }
 
 .search {
-    order: 1; /* Ordena la búsqueda primero */
+    order: 1; 
     text-align: center;
     padding: 1em;
     min-width: 300px;
@@ -91,9 +91,9 @@ main {
     width: 80vw;
 }
 
-/* Sección de resultados */
+/* Resultados */
 #resultados {
-    order: 2; /* Ordena los resultados segundo */
+    order: 2; 
     flex: 1;
     min-width: 300px;
     margin: 1em auto;
@@ -102,9 +102,9 @@ main {
     padding: 1em;
 }
 
-/* Sección del mapa */
+/* Mapa */
 #mapa {
-    order: 3; /* Ordena el mapa tercero */
+    order: 3; 
     flex: 1;
     min-width: 300px;
     margin: 1em;
@@ -153,7 +153,7 @@ footer {
 
 /* Estilo para el mapa */
 #map {
-    height: 400px; /* Ajusta la altura del mapa según sea necesario */
+    height: 400px; 
     width: 80vw;
     margin: 1em auto;
     border-radius: 10px;
