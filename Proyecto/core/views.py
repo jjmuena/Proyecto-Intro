@@ -6,7 +6,6 @@ from .forms import CustomUserCreationForm
 from django.contrib.auth import authenticate, login
 from django.http import JsonResponse
 from django.views.decorators.http import require_POST, require_GET
-# Create your views here.
 
 @login_required
 def inicio(request):

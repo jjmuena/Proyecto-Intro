@@ -59,7 +59,6 @@
         <section id="resultados" class="content oculto">
             <h3 style="text-align: center;"> Resultados </h3>
             <ul id="direcciones">
-                <!-- Aquí se mostrarán los resultados de la búsqueda -->
             </ul>
         </section>
         <section id="mapa" class="content">
@@ -71,19 +70,16 @@
         <div class="footer-content">
             <p>Contacto: <a href="mailto:contacto@greenusm.com">contacto@greenusm.com</a></p>
             <p>Teléfono: +56 9 1234 5678</p>
-            <p>Dirección: Av. Universidad Técnica Federico Santa María, Valparaíso, Chile</p>
+            <p>Dirección: Av. Vicuña Mackenna 3939, Universidad Técnica Federico Santa María, San Joaquin, Chile</p>
         </div>
     </footer>
     <script>
-        // Inicializar el mapa
-        var map = L.map('map').setView([-33.4489, -70.6693], 13); // Coordenadas de Santiago, Chile
+        var map = L.map('map').setView([-33.4489, -70.6693], 13); 
 
-        // Añadir una capa de mapa de OpenStreetMap
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
 
-        // Datos de ejemplo para los puntos de reciclaje
         var puntosReciclaje = {
             "Cerrillos": [
                 { lat: -33.51645, lng: -70.71424, direccion: "Av. Americo Vespucio #1501, Cerrillos" },
@@ -95,7 +91,7 @@
             ],
             "Conchali": [
                 { lat: -33.39853, lng: -70.67010, direccion: "Av. Dorsal #1904, Conchali" },
-                { lat: -33.4900, lng: -70.7100, direccion: "Av. Independencia #584, Conchali" }
+                { lat: -33.38152628301967,  lng: -70.69199835596258, direccion:  "Panamericana Nte. #5314, Conchali" }
             ],
             "El Bosque": [
                 { lat: -33.55368, lng: -70.67507, direccion: "Gran Av. Jose Miguel Carrera #10375, El Bosque" },
@@ -233,23 +229,19 @@
 
         };
 
-        // Manejar el evento de clic en el botón "Buscar"
         document.getElementById('buscar').addEventListener('click', function() {
             var comunaSeleccionada = document.getElementById('comuna').value;
             var resultados = puntosReciclaje[comunaSeleccionada];
 
-            // Limpiar resultados anteriores
             var listaDirecciones = document.getElementById('direcciones');
             listaDirecciones.innerHTML = '';
 
-            // Limpiar marcadores anteriores
             map.eachLayer(function (layer) {
                 if (layer instanceof L.Marker) {
                     map.removeLayer(layer);
                 }
             });
 
-            // Mostrar resultados y añadir marcadores al mapa
             resultados.forEach(function(punto) {
                 var li = document.createElement('li');
                 li.textContent = punto.direccion;
@@ -259,7 +251,6 @@
                     .bindPopup(punto.direccion);
             });
 
-            // Mostrar la sección de resultados
             document.getElementById('resultados').classList.remove('oculto');
         });
 

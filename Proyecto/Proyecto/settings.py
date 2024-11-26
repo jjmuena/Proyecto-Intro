@@ -141,8 +141,7 @@ LOGIN_REDIRECT_URL = 'inicio'
 LOGOUT_REDIRECT_URL = 'inicio'
 
 
-# Definimos la carpeta media para almacenar las imagenes
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
-AUTH_USER_MODEL = 'user.User' # Cambiamos el modelo de usuario por defecto de Django por el nuestro
+AUTH_USER_MODEL = 'user.User' 

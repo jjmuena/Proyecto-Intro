@@ -24,7 +24,6 @@
             <input type="checkbox" id="desafio3" data-puntos="15">
             <label for="desafio3">Planta un árbol (15 puntos)</label>
         </li>
-        <!-- Añade más desafíos según sea necesario -->
     </ul>
     <button id="completar-desafios">Completar Desafíos</button>
 </section>
@@ -37,12 +36,11 @@
 <div class="footer-content">
     <p>Contacto: <a href="mailto:contacto@greenusm.com">contacto@greenusm.com</a></p>
     <p>Teléfono: +56 9 1234 5678</p>
-    <p>Dirección: Av. Universidad Técnica Federico Santa María, Valparaíso, Chile</p>
+    <p>Dirección: Av.Vicuña Mackenna 3939, Universidad Técnica Federico Santa María, San Joaquin, Chile</p>
 </div>
 </footer>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // Cargar los puntos acumulados desde el backend
     cargarPuntosAcumulados();
 
     document.getElementById('completar-desafios').addEventListener('click', function() {
@@ -51,14 +49,13 @@ document.addEventListener('DOMContentLoaded', function() {
         checkboxes.forEach(function(checkbox) {
             if (checkbox.checked) {
                 puntosTotales += parseInt(checkbox.getAttribute('data-puntos'));
-                checkbox.checked = false; // Desmarcar el desafío completado
+                checkbox.checked = false; 
             }
         });
         var puntosAcumulados = document.getElementById('puntos-acumulados');
         var nuevosPuntos = parseInt(puntosAcumulados.textContent) + puntosTotales;
         puntosAcumulados.textContent = nuevosPuntos;
 
-        // Enviar los puntos al backend
         enviarPuntosAlBackend(puntosTotales);
     });
 });
